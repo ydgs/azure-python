@@ -3,7 +3,7 @@ import wget
 import zipfile
 import os
 
-zip_file_path = 'C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.9\Downloads\'
+zip_file_path = "C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.9\\Downloads\\"
 
 # get the latest chrome driver version number
 url = 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE'
