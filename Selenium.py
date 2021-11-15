@@ -120,4 +120,4 @@ for website in all_results:
             scroll_up_down()
             driver.back()
 
-            
+            print("Python tasks completed successfully")
