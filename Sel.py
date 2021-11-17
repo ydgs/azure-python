@@ -3,10 +3,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 import random
 
-#random_num = random.randint(1,5)
+random_num = random.randint(1,5)
 
 chrome_options = webdriver.ChromeOptions(); 
+#chrome_options.add_argument("headless");
 chrome_options.add_argument("--start-maximized");
+chrome_options.add_argument("--window-size=1920,1080")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-gpu")#
+chrome_options.add_argument('--user-agent=""Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36""')
 chrome_options.add_experimental_option("excludeSwitches", ['enable-automation']);
 
 driver = webdriver.Chrome(options=chrome_options)
@@ -67,6 +72,8 @@ print("Task Completed")
 # search_box = driver.find_element_by_xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")
 # search_box.send_keys(f"{search_terms[random_num]['Query']}")
 # search_box.submit()
+
+# print(search_box)
 
 # website_address = "allcamping-gears.com"
 
