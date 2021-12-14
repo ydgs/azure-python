@@ -3,8 +3,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import random
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
+import pathlib
 
-random_num = random.randint(1,5)
+random_num = random.randint(0,3)
 
 chrome_options = webdriver.ChromeOptions(); 
 chrome_options.add_argument("--start-maximized");
@@ -12,7 +15,10 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument('--user-agent=""Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36""')
 chrome_options.add_experimental_option("excludeSwitches", ['enable-automation']);
 
-driver = webdriver.Chrome(options=chrome_options)
+#ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+#driver = webdriver.Chrome(executable_path='/home/.wdm/drivers/chromedriver/linux64/96.0.4664.45/chromedriver', options=chrome_options)
+#ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install()
+driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=chrome_options)
 driver.get('https://www.google.com/')
 
 search_terms = [
@@ -75,59 +81,7 @@ CPG_website = ""
 for website in all_results:
     if (website.text == "https://allcamping-gears.com"):
         CPG_website = website;
-    # if website_address in website.text:
-    #     website.click()
-
-    #     scroll_up_down()
-
-        # navbar_dropdown = driver.find_element_by_xpath(f"{search_terms[random_num]['navbar_dropdown']}")
-
-        # print(navbar_dropdown)
-
-        # hover = ActionChains(driver).move_to_element(navbar_dropdown)
-        # hover.perform()
-
-        #navbar_dropdown_items = driver.find_element_by_xpath(f"{search_terms[random_num]['navbar_dropdown_items']}")
-        #navbar_dropdown_items.click()
-
-        # s1 = driver.find_element_by_css_selector('li.menu-item-7456')
-        # s1.click()
-
-        # print(s1)
-
-        # elems = driver.find_elements_by_xpath("//a[@href]")
-        # for elem in elems:
-        #     print(elem.get_attribute("href"))
-
-        # vignette_url = "https://allcamping-gears.com/#google_vignette"
-
-        # if vignette_url in driver.current_url:
-        #     driver.back()
-
-        #     # hover = ActionChains(driver).move_to_element(navbar_dropdown)
-        #     # hover.perform()
-
-        #     navbar_dropdown_items = driver.find_element_by_xpath(f"{search_terms[random_num]['navbar_dropdown_items']}")
-        #     navbar_dropdown_items.click()
-
-        #     scroll_up_down()
-
-        #     # first_related_blog_items = driver.find_element_by_xpath(f"{search_terms[random_num]['first_related_blog_items']}")
-
-        #     # first_related_blog_items.click();
-
-        #     # scroll_up_down()
-        #     # driver.back()
-
-        #     # second_related_blog_items = driver.find_element_by_xpath(f"{search_terms[random_num]['second_related_blog_items']}")
-
-        #     # second_related_blog_items.click()
-
-        #     # scroll_up_down()
-        #     # driver.back()
-
-        #     print("Python tasks completed successfully")
-
+    
 
 print(CPG_website)
 CPG_website.click()
